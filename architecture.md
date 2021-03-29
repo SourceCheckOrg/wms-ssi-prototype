@@ -105,4 +105,4 @@ decide on/design a prototype-grade schema for storing the authorship information
 and royalties in the document. Our plan after the grant is to refine this schema
 in alignment with ongoing digital content provenance structures such as the
 Adobe-led Content Authenticity Initiative and/or the Open Content Certification
-Protocol (OCCP)(https://posth.me/occp/).
+Protocol [OCCP](https://posth.me/occp/).
