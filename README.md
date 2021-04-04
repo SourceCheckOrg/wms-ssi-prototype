@@ -6,10 +6,10 @@ In the meantime, we are hard at work at our private
 curious about the project and can't wait that long!
 
 For now, see our [architecture document](architecture.md).  The components are:
-* [Publisher front-end](/SourceCheckOrg/wms-ssi-ui/)
-* [Publisher backend API](/SourceCheckOrg/wms-ssi-api/)
-* [Publisher backend dB](/SourceCheckOrg/wms-ssi-db/)
-* [Reader PDF-reader](/SourceCheckOrg/wms-ssi-preview/)
+* [Publisher front-end](https://github.com/SourceCheckOrg/wms-ssi-ui/)
+* [Publisher backend API](https://github.com/SourceCheckOrg/wms-ssi-api/)
+* [Publisher backend dB](https://github.com/SourceCheckOrg/wms-ssi-db/)
+* [Reader PDF-reader](https://github.com/SourceCheckOrg/wms-ssi-preview/)
  
 ## Updates
 

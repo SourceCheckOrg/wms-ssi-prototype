@@ -11,7 +11,7 @@ are approaching the minimum viable prototype.
 
 ## API & Publisher Back-end 
 
-[REPO](/SourceCheckOrg/wms-ssi-api/)
+[REPO](https://github.com/SourceCheckOrg/wms-ssi-api/)
 
 ![](https://community.webmonetization.org/remoteimages/uploads/articles/iql4a8e1lwjdb1svwmjn.png)
 
@@ -31,7 +31,7 @@ combined to meet all our functional requirements:
 
 ## UI / Front End app
 
-[REPO](/SourceCheckOrg/wms-ssi-ui/)
+[REPO](https://github.com/SourceCheckOrg/wms-ssi-ui/)
 
 ![](https://community.webmonetization.org/remoteimages/uploads/articles/nurgiaaadh42bm4rmie4.png)
 [Src: Original Whimsical](https://whimsical.com/sourcecheck-stakeholdermap-v2-FNM15d5rMR7tARo46F3ASa)
@@ -107,11 +107,11 @@ The triangular synchronisation between the backend, the frontend, and the wallet
 is achieved using [Socket.io](https://socket.io) messages and a custom database
 to extend the user account model of [strapi.io](https://strapi.io), which powers
 our publisher backend. The custom  dB for our Publisher backend can be found
-[here](/SourceCheckOrg/wms-ssi-db/).
+[here](https://github.com/SourceCheckOrg/wms-ssi-db/).
 
 ## Custom PDF Renderer for WMS
 
-[REPO](/SourceCheckOrg/wms-ssi-preview/)
+[REPO](https://github.com/SourceCheckOrg/wms-ssi-preview/)
 
 One crucial aspect of any paywall or web monetization scheme is that content
 should not be downloadable (or "sideloadable") in its raw form, because this
