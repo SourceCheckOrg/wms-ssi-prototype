@@ -9,4 +9,4 @@ For now, see our [architecture document](architecture.md)
 
 ## Updates
 
-Sign up for updates on our website, [https://sourcecheck.org/]
+Sign up for updates on our website, [SourceCheck.org](https://sourcecheck.org/).
