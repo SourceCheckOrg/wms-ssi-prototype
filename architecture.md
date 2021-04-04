@@ -9,7 +9,10 @@ are approaching the minimum viable prototype.
 
 [Src: Original Whimsical](https://whimsical.com/sourcecheck-stakeholdermap-v2-FNM15d5rMR7tARo46F3ASa)
 
-### API & Publisher Back-end 
+## API & Publisher Back-end 
+
+[REPO](/SourceCheckOrg/wms-ssi-api/)
+
 ![](https://community.webmonetization.org/remoteimages/uploads/articles/iql4a8e1lwjdb1svwmjn.png)
 
 [Src: Original Whimsical](https://whimsical.com/sourcecheck-stakeholdermap-v2-FNM15d5rMR7tARo46F3ASa)
@@ -26,21 +29,24 @@ combined to meet all our functional requirements:
   (more on that bellow) We chose Strapi as our base for the backend development
   and have been finding it quite straightforward and full-featured.
 
-### UI / Front End app
+## UI / Front End app
+
+[REPO](/SourceCheckOrg/wms-ssi-ui/)
+
 ![](https://community.webmonetization.org/remoteimages/uploads/articles/nurgiaaadh42bm4rmie4.png)
 [Src: Original Whimsical](https://whimsical.com/sourcecheck-stakeholdermap-v2-FNM15d5rMR7tARo46F3ASa)
 
-The front-end of this platform will be of utmost importance in launching this
-project as a hosted platform some day, but for now, in the spirit of the GftW
-grant, we are trying to prototype a minimum viable project, maximizing for
-reusable open-source functionality. As such, we are focusing first on the main
-goal of our intended future front-end is to allow publishers to upload their
-publications as PDF files, define royalty structures for each piece of content,
-and digitally sign both in a portable, binding way: verifiable credentials.
-These can be downloaded by publishers as receipts, are embedded in the final PDF
-publication, and can be consumed and processed by customized PDF readers. Our
-front-end currently includes one such custom PDF reader, but our modular
-architecture allows upgrading or swapping out any given element.
+The front-end component for publishers will be of utmost importance in launching
+this project as a hosted platform some day, but for now, in the spirit of the
+Grant for the Web grant, we are trying to prototype a minimum viable project,
+maximizing for reusable open-source functionality. As such, we are focusing
+first on the main goal of our intended future front-end is to allow publishers
+to upload their publications as PDF files, define royalty structures for each
+piece of content, and digitally sign both in a portable, binding way: verifiable
+credentials. These can be downloaded by publishers as receipts, are embedded in
+the final PDF publication, and can be consumed and processed by customized PDF
+readers. Our front-end currently includes one such custom PDF reader, but our
+modular architecture allows upgrading or swapping out any given element.
 
 Our frontend requirements for now are:
 
@@ -59,7 +65,8 @@ authenticated publications. Some day, we want to make these royalty schemes
 codified in the publications consumable by payment systems to allow
 micropayments and/or automated/smart-contract payments.
 
-### Authentication and Infrastructure for portable signatures
+## Authentication and Infrastructure for portable signatures
+
 The main feature of our project is to add a provenance layer to the publications
 in a both machine-readable and human-readable way; in other words, encoding into
 each publication verifiable information about who who created the content and
@@ -94,15 +101,34 @@ structures are both signed with cryptographic material stored securely in the
 app (in most cases, in the phone's OS-layer keystore).  We have developed a
 Strapi plugin that handles SSI authentication in the backend and integrates with
 Strapi's built-in ACL system. This plug-in also renders QR codes in the frontend
-to be scanned by the identity wallet. The triangular synchronisation between the
-backend, the frontend, and the wallet is achieved using Socket.io
+to be scanned by the identity wallet. 
 
-Current status At time of writing, we have most the the architectural components
-developed and integrated. The user interface is still very much in progress and
-requires some improvements to be feature complete as a prototype. We still need
-to implement the code that will embed provenance data into the PDF files, and
-decide on/design a prototype-grade schema for storing the authorship information
-and royalties in the document. Our plan after the grant is to refine this schema
-in alignment with ongoing digital content provenance structures such as the
-Adobe-led Content Authenticity Initiative and/or the Open Content Certification
-Protocol [OCCP](https://posth.me/occp/).
+The triangular synchronisation between the backend, the frontend, and the wallet
+is achieved using [Socket.io](https://socket.io) messages and a custom database
+to extend the user account model of [strapi.io](https://strapi.io), which powers
+our publisher backend. The custom  dB for our Publisher backend can be found
+[here](/SourceCheckOrg/wms-ssi-db/).
+
+## Custom PDF Renderer for WMS
+
+[REPO](/SourceCheckOrg/wms-ssi-preview/)
+
+One crucial aspect of any paywall or web monetization scheme is that content
+should not be downloadable (or "sideloadable") in its raw form, because this
+makes it trivial and far too tempting not to pay at all. The case of PDFs makes
+this quite obvious and salient! For the purposes of demonstration, we have made
+a WMS-enabled PDF reader with download functionality disabled by customizing
+open-source libraries for server-side rendering of PDFs. This can be configured
+to do various kinds of validation, such as only displaying a page if connected
+to a WMS account with a positive balance, or checking the authenticity of the
+document before displaying it, as determined by the given use-case. 
+
+## Next Steps
+
+Our plan after the grant is to refine this schema in alignment with ongoing
+digital content provenance structures such as the Adobe-led [Content
+Authenticity Initiative](https://contentauthenticity.org/) and/or the Open
+Content Certification Protocol (OCCP)(https://posth.me/occp/). Aligning with
+such protocols would greatly extend the reach of our experiments to date,
+combining markets, tooling, business models, and large corpuses of authentic
+content.
