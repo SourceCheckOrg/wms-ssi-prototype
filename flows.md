@@ -1,23 +1,23 @@
 # Main Flows
 
-## SSI-embedded Sign-in Flow and Account Generation
+## SSI-embedded Account Generation (a.k.a. "Sign Up")
 
-We have developed a Strapi plugin to handle Authentication using SSI which adds additional fields to the Strapi user data model (to store a DID control over which is proven at signup and reproven at each signin).
-
-When the user signs up, it receives a temporary link by email where he/she can retrieve a Verifiable Credential signed by SourceCheck. This credential proves that the publisher has control on the email account provided.
-
-To login into the app, the user is asked to present a Verifiable Presentation based on that Verifiable Credential.
-
-The connection between the frontend app and the Credible wallet is done using WebSockets (socket.io). A Redis database is used to store ids of sockets and facilitate session management.
-
-After the connection is established, a JWT token is generated in the backend to authorize subsequent requests.
+1. have developed a Strapi plugin to handle Authentication using SSI which adds additional fields to the Strapi user data model (to store a DID control over which is proven at signup and reproven at each signin).
+1. When the user signs up, it receives a temporary link by email where he/she can retrieve a Verifiable Credential signed by SourceCheck. 
+2. This credential proves that the publisher has control on the email account provided, and includes both the email and the associated DID (signed by SourceCheck)
+3. Proving control of the associated did that the credential was issued to is required by the VP nonce-signing process; see the [VP section of the VC spec](https://www.w3.org/TR/vc-data-model/#presentations-0).
 
 ![swimlanes-7d5a21f4f770394eeaa992583bf6cf77](https://user-images.githubusercontent.com/37127325/118764222-01045680-b82e-11eb-9c74-2f7092595af8.png)
+Src: https://swimlanes.io/d/PwWrVYjSN
 
 ## SSI-embedded Authentication per session
 
-![swimlanes-fbc7b74443ff232b8df283ec083ad9c3](https://user-images.githubusercontent.com/37127325/118764219-ffd32980-b82d-11eb-8671-7dd6757a84e8.png)
+1. To login into the app, the user is asked to present a Verifiable Presentation based on that Verifiable Credential.
+1. The connection between the frontend app and the Credible wallet is done using WebSockets (socket.io). A Redis database is used to store ids of sockets and facilitate session management.
+1.fter the connection is established, a JWT token is generated in the backend to authorize subsequent requests.
 
+![swimlanes-fbc7b74443ff232b8df283ec083ad9c3](https://user-images.githubusercontent.com/37127325/118764219-ffd32980-b82d-11eb-8671-7dd6757a84e8.png)
+Src: https://swimlanes.io/d/Z2Xt071XI
 
 ## PDF Hashing and Verification Flows
 
